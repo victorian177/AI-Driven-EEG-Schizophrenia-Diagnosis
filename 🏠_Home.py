@@ -29,4 +29,5 @@ st.write(
 
     *Disclaimer: This project is for research and educational purposes. If you or someone you know is experiencing mental health concerns, please consult with a qualified healthcare professional.*
 
-    """)
+    """
+)

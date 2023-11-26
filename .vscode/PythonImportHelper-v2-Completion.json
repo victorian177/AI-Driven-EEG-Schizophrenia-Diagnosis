@@ -81,6 +81,15 @@
         "documentation": {}
     },
     {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
         "label": "bin_dir",
         "kind": 5,
         "importPath": ".venv.Scripts.activate_this",
@@ -402,6 +411,24 @@
         "description": ".venv.Scripts.pywin32_testall",
         "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
         "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "data = {\n    \"Frequency Band\": [\n        \"Delta (0.5–4.0 Hz)\",\n        \"Theta (4–8 Hz)\",\n        \"Alpha (8–13 Hz)\",\n        \"Beta (12–30 Hz)\",\n        \"Gamma (30–100 Hz)\",\n    ],\n    \"Frequency Range\": [\"0.5–4.0 Hz\", \"4–8 Hz\", \"8–13 Hz\", \"12–30 Hz\", \"30–100 Hz\"],\n    \"Location\": [",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "df = pd.DataFrame(data)\n# Display the table in the Streamlit app\nst.title(\"Frequency Bands and Brain States\")\nst.table(df)",
+        "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     }
 ]
