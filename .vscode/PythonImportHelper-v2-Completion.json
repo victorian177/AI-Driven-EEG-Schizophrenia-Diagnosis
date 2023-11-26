@@ -81,14 +81,6 @@
         "documentation": {}
     },
     {
-        "label": "home",
-        "importPath": "pages",
-        "description": "pages",
-        "isExtraImport": true,
-        "detail": "pages",
-        "documentation": {}
-    },
-    {
         "label": "data_preprocessing",
         "importPath": "pages",
         "description": "pages",
@@ -434,7 +426,7 @@
         "kind": 5,
         "importPath": "🏠_Home",
         "description": "🏠_Home",
-        "peekOfCode": "pages = {\"Home\": home.app, \"Data Input\": data_preprocessing.app}\n# Create a sidebar to select pages\nselected_page = st.sidebar.selectbox(\"Select Page\", list(pages.keys()))\n# Run the selected page\npages[selected_page]()",
+        "peekOfCode": "pages = {\"Data Input\": data_preprocessing.app}\n# Create a sidebar to select pages\nselected_page = st.sidebar.selectbox(\"Select Page\", list(pages.keys()))\n# Run the selected page\npages[selected_page]()",
         "detail": "🏠_Home",
         "documentation": {}
     },
