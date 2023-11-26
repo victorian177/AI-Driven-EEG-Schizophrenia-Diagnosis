@@ -423,37 +423,28 @@
     {
         "label": "app",
         "kind": 2,
-        "importPath": "pages.data_preprocessing",
-        "description": "pages.data_preprocessing",
+        "importPath": "pages.⚙_Data_Preprocessing",
+        "description": "pages.⚙_Data_Preprocessing",
         "peekOfCode": "def app():\n    st.title(\"Data Preprocessing Page\")\n    # Your data input page content here",
-        "detail": "pages.data_preprocessing",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 2,
-        "importPath": "pages.home",
-        "description": "pages.home",
-        "peekOfCode": "def app():\n    st.title(\"Home Page\")\n    # Your home page content here",
-        "detail": "pages.home",
+        "detail": "pages.⚙_Data_Preprocessing",
         "documentation": {}
     },
     {
         "label": "pages",
         "kind": 5,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "pages = {\n    \"Home\": home.app,\n    \"Data Input\": data_preprocessing.app\n}\n# Create a sidebar to select pages\nselected_page = st.sidebar.selectbox(\"Select Page\", list(pages.keys()))\n# Run the selected page\npages[selected_page]()",
-        "detail": "app",
+        "importPath": "🏠_Home",
+        "description": "🏠_Home",
+        "peekOfCode": "pages = {\"Home\": home.app, \"Data Input\": data_preprocessing.app}\n# Create a sidebar to select pages\nselected_page = st.sidebar.selectbox(\"Select Page\", list(pages.keys()))\n# Run the selected page\npages[selected_page]()",
+        "detail": "🏠_Home",
         "documentation": {}
     },
     {
         "label": "selected_page",
         "kind": 5,
-        "importPath": "app",
-        "description": "app",
+        "importPath": "🏠_Home",
+        "description": "🏠_Home",
         "peekOfCode": "selected_page = st.sidebar.selectbox(\"Select Page\", list(pages.keys()))\n# Run the selected page\npages[selected_page]()",
-        "detail": "app",
+        "detail": "🏠_Home",
         "documentation": {}
     }
 ]
