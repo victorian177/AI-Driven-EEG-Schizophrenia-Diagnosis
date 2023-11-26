@@ -98,7 +98,9 @@ st.write("3. **Rest Phase 2:** Another rest period.")
 st.write("4. **Auditory Task Phase:** Participants performed an auditory task.")
 
 st.write("This was done multiple times.")
-st.write("""Fp1, Fp2: Frontopolar (Frontoparietal) electrodes.
+st.write("Here is a list of the electrodes used to measure EEG:")
+st.write("""
+         Fp1, Fp2: Frontopolar (Frontoparietal) electrodes.
 F3, F4: Frontal electrodes.
 C3, C4: Central electrodes.
 P3, P4: Parietal electrodes.
