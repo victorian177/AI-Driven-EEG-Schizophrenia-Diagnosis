@@ -1,5 +1,9 @@
 import streamlit as st
+
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+from pyedflib import highlevel
 
 # Schizophrenia Section
 st.title("Schizophrenia: Understanding and Detection")
@@ -86,3 +90,24 @@ st.write(f"Male Patients to Female Patients Ratio: {male_to_female_patients_rati
 st.write(f"Male Controls to Female Controls Ratio: {male_to_female_controls_ratio}")
 st.write(f"\nAge Distribution for Controls:\n{age_distribution_controls}")
 st.write(f"\nAge Distribution for Patients:\n{age_distribution_patients}")
+
+st.write("\n### EEG data measurement is done in four phases:")
+st.write("1. **Rest Phase 1:** Participants were at rest.")
+st.write("2. **Arithmetic Phase:** Participants performed arithmetic tasks.")
+st.write("3. **Rest Phase 2:** Another rest period.")
+st.write("4. **Auditory Task Phase:** Participants performed an auditory task.")
+
+st.write("This was done multiple times.")
+st.write("""Fp1, Fp2: Frontopolar (Frontoparietal) electrodes.
+F3, F4: Frontal electrodes.
+C3, C4: Central electrodes.
+P3, P4: Parietal electrodes.
+O1, O2: Occipital electrodes.
+F7, F8: Frontotemporal electrodes.
+T3, T4: Temporal electrodes.
+T5, T6: Temporal/parietal electrodes.
+Fz, Pz, Cz: Midline electrodes, corresponding to the frontal (Fz), parietal (Pz), and central (Cz) regions.
+Pg1, Pg2: Parietal/occipital electrodes.
+EOGR: Electrooculogram Right (measuring eye movement).
+EOOGL: Electrooculogram Left (measuring eye movement).
+EMG: Electromyogram (measuring muscle activity).""")

@@ -81,12 +81,46 @@
         "documentation": {}
     },
     {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
         "label": "pandas",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "pandas",
         "description": "pandas",
         "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "highlevel",
+        "importPath": "pyedflib",
+        "description": "pyedflib",
+        "isExtraImport": true,
+        "detail": "pyedflib",
+        "documentation": {}
+    },
+    {
+        "label": "highlevel",
+        "importPath": "pyedflib",
+        "description": "pyedflib",
+        "isExtraImport": true,
+        "detail": "pyedflib",
         "documentation": {}
     },
     {
@@ -517,7 +551,7 @@
         "kind": 5,
         "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
         "description": "pages.1_📄_Data_Collection_and_Preprocessing",
-        "peekOfCode": "age_distribution_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"][\"age\"].describe()\n# Display Results\nst.write(f\"Number of Patients: {num_patients}\")\nst.write(f\"Number of Controls: {num_controls}\")\nst.write(f\"Male to Female Ratio:\\n{male_to_female_ratio}\")\nst.write(f\"Male Patients to Female Patients Ratio: {male_to_female_patients_ratio}\")\nst.write(f\"Male Controls to Female Controls Ratio: {male_to_female_controls_ratio}\")\nst.write(f\"\\nAge Distribution for Controls:\\n{age_distribution_controls}\")\nst.write(f\"\\nAge Distribution for Patients:\\n{age_distribution_patients}\")",
+        "peekOfCode": "age_distribution_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"][\"age\"].describe()\n# Display Results\nst.write(f\"Number of Patients: {num_patients}\")\nst.write(f\"Number of Controls: {num_controls}\")\nst.write(f\"Male to Female Ratio:\\n{male_to_female_ratio}\")\nst.write(f\"Male Patients to Female Patients Ratio: {male_to_female_patients_ratio}\")\nst.write(f\"Male Controls to Female Controls Ratio: {male_to_female_controls_ratio}\")\nst.write(f\"\\nAge Distribution for Controls:\\n{age_distribution_controls}\")\nst.write(f\"\\nAge Distribution for Patients:\\n{age_distribution_patients}\")\nst.write(\"\\n### EEG data measurement is done in four phases:\")",
         "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
         "documentation": {}
     },
