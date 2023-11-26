@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Schizophrenia Section
 st.title("Schizophrenia: Understanding and Detection")
@@ -7,7 +8,7 @@ st.title("Schizophrenia: Understanding and Detection")
 st.header("Introduction")
 st.write(
     """
-Schizophrenia is a multifaceted mental disorder characterized by episodes of psychosis, encompassing symptoms such as hallucinations, disorganized thinking and speech, social withdrawal, delusions, impaired emotional expression, and cognitive deficits. While its exact cause remains elusive, existing evidence suggests a complex interplay of genetic, biological, and environmental factors. The diagnostic process involves meeting specific criteria outlined in manuals like the DSM-5, with symptoms persisting for a certain duration. The initial manifestation of psychosis in an individual later diagnosed with schizophrenia is termed a first-episode psychosis (FEP). It is crucial to consider various symptoms when comprehensively understanding this disorder.
+    Schizophrenia is a multifaceted mental disorder characterized by episodes of psychosis, encompassing symptoms such as hallucinations, disorganized thinking and speech, social withdrawal, delusions, impaired emotional expression, and cognitive deficits. While its exact cause remains elusive, existing evidence suggests a complex interplay of genetic, biological, and environmental factors. The diagnostic process involves meeting specific criteria outlined in manuals like the DSM-5, with symptoms persisting for a certain duration. The initial manifestation of psychosis in an individual later diagnosed with schizophrenia is termed a first-episode psychosis (FEP). It is crucial to consider various symptoms when comprehensively understanding this disorder.
 """
 )
 
@@ -39,3 +40,49 @@ st.markdown(
 - Electroencephalography. [Wikipedia](https://en.wikipedia.org/wiki/Electroencephalography)
 """
 )
+st.header("EEG Data Analysis")
+
+# Load EEG data into a DataFrame
+eeg_df = pd.read_csv("Acquired Dataset/participant_info.csv")
+
+# Number of Patients and Controls
+num_patients = eeg_df[eeg_df["category"] == "Patient"].shape[0]
+num_controls = eeg_df[eeg_df["category"] == "Control"].shape[0]
+
+# Male to Female Ratio
+male_to_female_ratio = eeg_df["sex"].value_counts()
+
+# Male Patients to Female Patients Ratio
+male_patients = eeg_df[
+    (eeg_df["category"] == "Patient") & (eeg_df["sex"] == "M")
+].shape[0]
+female_patients = eeg_df[
+    (eeg_df["category"] == "Patient") & (eeg_df["sex"] == "F")
+].shape[0]
+male_to_female_patients_ratio = (
+    male_patients / female_patients if female_patients != 0 else "N/A"
+)
+
+# Male Controls to Female Controls Ratio
+male_controls = eeg_df[
+    (eeg_df["category"] == "Control") & (eeg_df["sex"] == "M")
+].shape[0]
+female_controls = eeg_df[
+    (eeg_df["category"] == "Control") & (eeg_df["sex"] == "F")
+].shape[0]
+male_to_female_controls_ratio = (
+    male_controls / female_controls if female_controls != 0 else "N/A"
+)
+
+# Age Distribution for Controls and Patients
+age_distribution_controls = eeg_df[eeg_df["category"] == "Control"]["age"].describe()
+age_distribution_patients = eeg_df[eeg_df["category"] == "Patient"]["age"].describe()
+
+# Display Results
+st.write(f"Number of Patients: {num_patients}")
+st.write(f"Number of Controls: {num_controls}")
+st.write(f"Male to Female Ratio:\n{male_to_female_ratio}")
+st.write(f"Male Patients to Female Patients Ratio: {male_to_female_patients_ratio}")
+st.write(f"Male Controls to Female Controls Ratio: {male_to_female_controls_ratio}")
+st.write(f"\nAge Distribution for Controls:\n{age_distribution_controls}")
+st.write(f"\nAge Distribution for Patients:\n{age_distribution_patients}")

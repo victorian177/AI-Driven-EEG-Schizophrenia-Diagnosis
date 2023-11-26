@@ -414,6 +414,114 @@
         "documentation": {}
     },
     {
+        "label": "eeg_df",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "eeg_df = pd.read_csv(\"Acquired Dataset/participant_info.csv\")\n# Number of Patients and Controls\nnum_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"].shape[0]\nnum_controls = eeg_df[eeg_df[\"category\"] == \"Control\"].shape[0]\n# Male to Female Ratio\nmale_to_female_ratio = eeg_df[\"sex\"].value_counts()\n# Male Patients to Female Patients Ratio\nmale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "num_patients",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "num_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"].shape[0]\nnum_controls = eeg_df[eeg_df[\"category\"] == \"Control\"].shape[0]\n# Male to Female Ratio\nmale_to_female_ratio = eeg_df[\"sex\"].value_counts()\n# Male Patients to Female Patients Ratio\nmale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]\nfemale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"F\")",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "num_controls",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "num_controls = eeg_df[eeg_df[\"category\"] == \"Control\"].shape[0]\n# Male to Female Ratio\nmale_to_female_ratio = eeg_df[\"sex\"].value_counts()\n# Male Patients to Female Patients Ratio\nmale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]\nfemale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"F\")\n].shape[0]",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "male_to_female_ratio",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "male_to_female_ratio = eeg_df[\"sex\"].value_counts()\n# Male Patients to Female Patients Ratio\nmale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]\nfemale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"F\")\n].shape[0]\nmale_to_female_patients_ratio = (\n    male_patients / female_patients if female_patients != 0 else \"N/A\"",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "male_patients",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "male_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]\nfemale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"F\")\n].shape[0]\nmale_to_female_patients_ratio = (\n    male_patients / female_patients if female_patients != 0 else \"N/A\"\n)\n# Male Controls to Female Controls Ratio",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "female_patients",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "female_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"F\")\n].shape[0]\nmale_to_female_patients_ratio = (\n    male_patients / female_patients if female_patients != 0 else \"N/A\"\n)\n# Male Controls to Female Controls Ratio\nmale_controls = eeg_df[\n    (eeg_df[\"category\"] == \"Control\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "male_to_female_patients_ratio",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "male_to_female_patients_ratio = (\n    male_patients / female_patients if female_patients != 0 else \"N/A\"\n)\n# Male Controls to Female Controls Ratio\nmale_controls = eeg_df[\n    (eeg_df[\"category\"] == \"Control\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]\nfemale_controls = eeg_df[\n    (eeg_df[\"category\"] == \"Control\") & (eeg_df[\"sex\"] == \"F\")\n].shape[0]",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "male_controls",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "male_controls = eeg_df[\n    (eeg_df[\"category\"] == \"Control\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]\nfemale_controls = eeg_df[\n    (eeg_df[\"category\"] == \"Control\") & (eeg_df[\"sex\"] == \"F\")\n].shape[0]\nmale_to_female_controls_ratio = (\n    male_controls / female_controls if female_controls != 0 else \"N/A\"\n)\n# Age Distribution for Controls and Patients",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "female_controls",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "female_controls = eeg_df[\n    (eeg_df[\"category\"] == \"Control\") & (eeg_df[\"sex\"] == \"F\")\n].shape[0]\nmale_to_female_controls_ratio = (\n    male_controls / female_controls if female_controls != 0 else \"N/A\"\n)\n# Age Distribution for Controls and Patients\nage_distribution_controls = eeg_df[eeg_df[\"category\"] == \"Control\"][\"age\"].describe()\nage_distribution_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"][\"age\"].describe()\n# Display Results",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "male_to_female_controls_ratio",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "male_to_female_controls_ratio = (\n    male_controls / female_controls if female_controls != 0 else \"N/A\"\n)\n# Age Distribution for Controls and Patients\nage_distribution_controls = eeg_df[eeg_df[\"category\"] == \"Control\"][\"age\"].describe()\nage_distribution_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"][\"age\"].describe()\n# Display Results\nst.write(f\"Number of Patients: {num_patients}\")\nst.write(f\"Number of Controls: {num_controls}\")\nst.write(f\"Male to Female Ratio:\\n{male_to_female_ratio}\")",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "age_distribution_controls",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "age_distribution_controls = eeg_df[eeg_df[\"category\"] == \"Control\"][\"age\"].describe()\nage_distribution_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"][\"age\"].describe()\n# Display Results\nst.write(f\"Number of Patients: {num_patients}\")\nst.write(f\"Number of Controls: {num_controls}\")\nst.write(f\"Male to Female Ratio:\\n{male_to_female_ratio}\")\nst.write(f\"Male Patients to Female Patients Ratio: {male_to_female_patients_ratio}\")\nst.write(f\"Male Controls to Female Controls Ratio: {male_to_female_controls_ratio}\")\nst.write(f\"\\nAge Distribution for Controls:\\n{age_distribution_controls}\")\nst.write(f\"\\nAge Distribution for Patients:\\n{age_distribution_patients}\")",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "age_distribution_patients",
+        "kind": 5,
+        "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "description": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "peekOfCode": "age_distribution_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"][\"age\"].describe()\n# Display Results\nst.write(f\"Number of Patients: {num_patients}\")\nst.write(f\"Number of Controls: {num_controls}\")\nst.write(f\"Male to Female Ratio:\\n{male_to_female_ratio}\")\nst.write(f\"Male Patients to Female Patients Ratio: {male_to_female_patients_ratio}\")\nst.write(f\"Male Controls to Female Controls Ratio: {male_to_female_controls_ratio}\")\nst.write(f\"\\nAge Distribution for Controls:\\n{age_distribution_controls}\")\nst.write(f\"\\nAge Distribution for Patients:\\n{age_distribution_patients}\")",
+        "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
+        "documentation": {}
+    },
+    {
         "label": "data",
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
