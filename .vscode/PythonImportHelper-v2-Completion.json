@@ -81,6 +81,22 @@
         "documentation": {}
     },
     {
+        "label": "home",
+        "importPath": "pages",
+        "description": "pages",
+        "isExtraImport": true,
+        "detail": "pages",
+        "documentation": {}
+    },
+    {
+        "label": "data_preprocessing",
+        "importPath": "pages",
+        "description": "pages",
+        "isExtraImport": true,
+        "detail": "pages",
+        "documentation": {}
+    },
+    {
         "label": "bin_dir",
         "kind": 5,
         "importPath": ".venv.Scripts.activate_this",
@@ -420,6 +436,24 @@
         "description": "pages.home",
         "peekOfCode": "def app():\n    st.title(\"Home Page\")\n    # Your home page content here",
         "detail": "pages.home",
+        "documentation": {}
+    },
+    {
+        "label": "pages",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "pages = {\n    \"Home\": home.app,\n    \"Data Input\": data_preprocessing.app\n}\n# Create a sidebar to select pages\nselected_page = st.sidebar.selectbox(\"Select Page\", list(pages.keys()))\n# Run the selected page\npages[selected_page]()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "selected_page",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "selected_page = st.sidebar.selectbox(\"Select Page\", list(pages.keys()))\n# Run the selected page\npages[selected_page]()",
+        "detail": "app",
         "documentation": {}
     }
 ]
