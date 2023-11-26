@@ -72,12 +72,12 @@
         "documentation": {}
     },
     {
-        "label": "mne",
+        "label": "streamlit",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "mne",
-        "description": "mne",
-        "detail": "mne",
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
         "documentation": {}
     },
     {
@@ -402,6 +402,24 @@
         "description": ".venv.Scripts.pywin32_testall",
         "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
         "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 2,
+        "importPath": "pages.data_preprocessing",
+        "description": "pages.data_preprocessing",
+        "peekOfCode": "def app():\n    st.title(\"Data Preprocessing Page\")\n    # Your data input page content here",
+        "detail": "pages.data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 2,
+        "importPath": "pages.home",
+        "description": "pages.home",
+        "peekOfCode": "def app():\n    st.title(\"Home Page\")\n    # Your home page content here",
+        "detail": "pages.home",
         "documentation": {}
     }
 ]
