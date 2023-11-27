@@ -535,7 +535,7 @@
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "data = {\n    \"Frequency Band\": [\n        \"Delta (0.5–4.0 Hz)\",\n        \"Theta (4–8 Hz)\",\n        \"Alpha (8–13 Hz)\",\n        \"Beta (12–30 Hz)\",\n        \"Gamma (30–100 Hz)\",\n    ],\n    \"Frequency Range\": [\"0.5–4.0 Hz\", \"4–8 Hz\", \"8–13 Hz\", \"12–30 Hz\", \"30–100 Hz\"],\n    \"Location\": [",
+        "peekOfCode": "data = {\n    \"Frequency Band\": [\n        \"Delta\",\n        \"Theta\",\n        \"Alpha\",\n        \"Beta\",\n        \"Gamma\",\n    ],\n    \"Frequency Range\": [\"0.5–4.0 Hz\", \"4–8 Hz\", \"8–13 Hz\", \"12–30 Hz\", \"30–100 Hz\"],\n    \"Location\": [",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     },
@@ -544,7 +544,7 @@
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "df = pd.DataFrame(data)\n# Display the table in the Streamlit app\nst.title(\"Frequency Bands and Brain States\")\nst.table(df)",
+        "peekOfCode": "df = pd.DataFrame(data)\n# Display the table in the Streamlit app\nst.title(\"Frequency Bands and Brain States\")\nst.table(df)\nst.title(\"EEG Patterns During Different Brain States and Cognitive Tasks\")\n# Rest\nst.header(\"Rest\")\nst.write(\n    \"During rest, the EEG is typically dominated by alpha waves. However, there may also be some theta waves and delta waves present. The amplitude of the alpha waves is higher in the occipital lobe, which is the part of the brain that is responsible for vision.\"\n)",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     }
