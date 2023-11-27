@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+
 ## EEG Features for Diagnosis Section
 st.header("EEG Features for Diagnosis")
 
@@ -110,13 +111,20 @@ st.write(
 
 patients = [10, 14, 15, 16, 18, 2, 20, 21, 22, 23, 25, 3, 4, 5, 6, 7, 8, 9]
 
-cntrls = {}
-ptnts = {}
+a_cntrls = {}
+a_ptnts = {}
+
+b_cntrls = {}
+b_ptnts = {}
+
+g_cntrls = {}
+g_ptnts = {}
+
 
 def calculate_power(data, freq_range):
     lower, upper = freq_range
     fft_result = np.fft.fft(data)
-    frequencies = np.fft.fftfreq(len(data), 1/100)
+    frequencies = np.fft.fftfreq(len(data), 1 / 100)
 
     # Filter frequencies within the range 8 to 13 Hz
     mask = (frequencies >= lower) & (frequencies <= upper)
@@ -124,28 +132,66 @@ def calculate_power(data, freq_range):
     filtered_fft_result = fft_result[mask]
     # Calculate power spectrum
     power_spectrum = (np.abs(filtered_fft_result) ** 2) / len(filtered_fft_result) ** 2
-    
+
     return power_spectrum
 
-# Alpha wave
-alpha_electrodes = ["O1[9]","O2[10]","P3[7]","P4[8]","Fz[17]"]
+
+st.write("# Alpha waves")
+alpha_electrodes = ["O1[9]", "O2[10]", "P3[7]", "P4[8]", "Fz[17]"]
 
 for dir in os.listdir("Output EEG Data"):
     rest0_phase_file = f"Output EEG Data/{dir}/Phase 3.csv"
     rest0_phase = pd.read_csv(rest0_phase_file)
-    
+
     for electrode in alpha_electrodes:
         data = rest0_phase[electrode]
-        
+
         if int(dir) not in patients:
-            cntrls[dir] = {}
-            cntrls[dir][electrode] = calculate_power(data, (8, 13))
+            a_cntrls[dir] = {}
+            a_cntrls[dir][electrode] = calculate_power(data, (8, 13))
         else:
-            ptnts[dir] = {}
-            ptnts[dir][electrode] = calculate_power(data, (8, 13))
+            a_ptnts[dir] = {}
+            a_ptnts[dir][electrode] = calculate_power(data, (8, 13))
 
-st.subheader('Power spectrum of control')
-st.line_chart(cntrls["1"]["Fz[17]"])
+st.subheader("Power spectrum of control")
+st.line_chart(a_cntrls["1"][alpha_electrodes[0]])
 
-st.subheader('Power spectrum of patient')
-st.line_chart(ptnts["10"]["Fz[17]"])
+st.subheader("Power spectrum of patient")
+st.line_chart(a_ptnts["10"][alpha_electrodes[0]])
+
+
+beta_electrodes = ["F7[11]", "F8[12]", "T5[15]", "T6[16]", "Pz[18]"]
+gamma_electrodes = ["Fz[17]", "Pz[18]", "O1[9]", "O2[10]", "Cz[19]"]
+
+for dir in os.listdir("Output EEG Data"):
+    arith_phase_file = f"Output EEG Data/{dir}/Phase 2.csv"
+    arith_phase = pd.read_csv(arith_phase_file)
+
+    for electrode in beta_electrodes:
+        data = arith_phase[electrode]
+
+        if int(dir) not in patients:
+            b_cntrls[dir] = {}
+            b_cntrls[dir][electrode] = calculate_power(data, (12, 30))
+            g_cntrls[dir] = {}
+            g_cntrls[dir][electrode] = calculate_power(data, (30, 100))
+
+        else:
+            b_ptnts[dir] = {}
+            b_ptnts[dir][electrode] = calculate_power(data, (12, 30))
+            g_ptnts[dir] = {}
+            g_ptnts[dir][electrode] = calculate_power(data, (30, 100))
+
+st.write("# Beta waves")
+st.subheader("Power spectrum of control")
+st.line_chart(b_cntrls["1"][beta_electrodes[0]])
+
+st.subheader("Power spectrum of patient")
+st.line_chart(b_ptnts["10"][beta_electrodes[0]])
+
+st.write("# Gamma waves")
+st.subheader("Power spectrum of control")
+st.line_chart(g_cntrls["1"][gamma_electrodes[0]])
+
+st.subheader("Power spectrum of patient")
+st.line_chart(g_ptnts["10"][gamma_electrodes[0]])

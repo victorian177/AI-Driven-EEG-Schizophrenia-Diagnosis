@@ -535,7 +535,7 @@
         "kind": 2,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "def calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]\n    # Calculate power spectrum\n    power_spectrum = (np.abs(filtered_fft_result) ** 2) / len(filtered_fft_result) ** 2",
+        "peekOfCode": "def calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1 / 100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]\n    # Calculate power spectrum\n    power_spectrum = (np.abs(filtered_fft_result) ** 2) / len(filtered_fft_result) ** 2",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     },
@@ -562,25 +562,61 @@
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "patients = [10, 14, 15, 16, 18, 2, 20, 21, 22, 23, 25, 3, 4, 5, 6, 7, 8, 9]\ncntrls = {}\nptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]",
+        "peekOfCode": "patients = [10, 14, 15, 16, 18, 2, 20, 21, 22, 23, 25, 3, 4, 5, 6, 7, 8, 9]\na_cntrls = {}\na_ptnts = {}\nb_cntrls = {}\nb_ptnts = {}\ng_cntrls = {}\ng_ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     },
     {
-        "label": "cntrls",
+        "label": "a_cntrls",
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "cntrls = {}\nptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]",
+        "peekOfCode": "a_cntrls = {}\na_ptnts = {}\nb_cntrls = {}\nb_ptnts = {}\ng_cntrls = {}\ng_ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1 / 100)",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     },
     {
-        "label": "ptnts",
+        "label": "a_ptnts",
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]\n    # Calculate power spectrum",
+        "peekOfCode": "a_ptnts = {}\nb_cntrls = {}\nb_ptnts = {}\ng_cntrls = {}\ng_ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1 / 100)\n    # Filter frequencies within the range 8 to 13 Hz",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "b_cntrls",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "b_cntrls = {}\nb_ptnts = {}\ng_cntrls = {}\ng_ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1 / 100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "b_ptnts",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "b_ptnts = {}\ng_cntrls = {}\ng_ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1 / 100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "g_cntrls",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "g_cntrls = {}\ng_ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1 / 100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "g_ptnts",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "g_ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1 / 100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]\n    # Calculate power spectrum",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     },
@@ -589,7 +625,25 @@
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "alpha_electrodes = [\"O1[9]\",\"O2[10]\",\"P3[7]\",\"P4[8]\",\"Fz[17]\"]\nfor dir in os.listdir(\"Output EEG Data\"):\n    rest0_phase_file = f\"Output EEG Data/{dir}/Phase 3.csv\"\n    rest0_phase = pd.read_csv(rest0_phase_file)\n    for electrode in alpha_electrodes:\n        data = rest0_phase[electrode]\n        if int(dir) not in patients:\n            cntrls[dir] = {}\n            cntrls[dir][electrode] = calculate_power(data, (8, 13))\n        else:",
+        "peekOfCode": "alpha_electrodes = [\"O1[9]\", \"O2[10]\", \"P3[7]\", \"P4[8]\", \"Fz[17]\"]\nfor dir in os.listdir(\"Output EEG Data\"):\n    rest0_phase_file = f\"Output EEG Data/{dir}/Phase 3.csv\"\n    rest0_phase = pd.read_csv(rest0_phase_file)\n    for electrode in alpha_electrodes:\n        data = rest0_phase[electrode]\n        if int(dir) not in patients:\n            a_cntrls[dir] = {}\n            a_cntrls[dir][electrode] = calculate_power(data, (8, 13))\n        else:",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "beta_electrodes",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "beta_electrodes = [\"F7[11]\", \"F8[12]\", \"T5[15]\", \"T6[16]\", \"Pz[18]\"]\ngamma_electrodes = [\"Fz[17]\", \"Pz[18]\", \"O1[9]\", \"O2[10]\", \"Cz[19]\"]\nfor dir in os.listdir(\"Output EEG Data\"):\n    arith_phase_file = f\"Output EEG Data/{dir}/Phase 2.csv\"\n    arith_phase = pd.read_csv(arith_phase_file)\n    for electrode in beta_electrodes:\n        data = arith_phase[electrode]\n        if int(dir) not in patients:\n            b_cntrls[dir] = {}\n            b_cntrls[dir][electrode] = calculate_power(data, (12, 30))",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "gamma_electrodes",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "gamma_electrodes = [\"Fz[17]\", \"Pz[18]\", \"O1[9]\", \"O2[10]\", \"Cz[19]\"]\nfor dir in os.listdir(\"Output EEG Data\"):\n    arith_phase_file = f\"Output EEG Data/{dir}/Phase 2.csv\"\n    arith_phase = pd.read_csv(arith_phase_file)\n    for electrode in beta_electrodes:\n        data = arith_phase[electrode]\n        if int(dir) not in patients:\n            b_cntrls[dir] = {}\n            b_cntrls[dir][electrode] = calculate_power(data, (12, 30))\n            g_cntrls[dir] = {}",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     }
