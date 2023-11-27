@@ -145,7 +145,7 @@ for dir in os.listdir("Output EEG Data"):
             ptnts[dir][electrode] = calculate_power(data, (8, 13))
 
 st.subheader('Power spectrum of control')
-st.line_chart(cntrls["1"])
+st.line_chart(cntrls["1"]["Fz[17]"])
 
 st.subheader('Power spectrum of patient')
-st.line_chart(ptnts["10"])
+st.line_chart(ptnts["10"]["Fz[17]"])
