@@ -625,7 +625,7 @@
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
-        "peekOfCode": "alpha_electrodes = [\"O1[9]\", \"O2[10]\", \"P3[7]\", \"P4[8]\", \"Fz[17]\"]\nfor dir in os.listdir(\"Output EEG Data\"):\n    rest0_phase_file = f\"Output EEG Data/{dir}/Phase 3.csv\"\n    rest0_phase = pd.read_csv(rest0_phase_file)\n    for electrode in alpha_electrodes:\n        data = rest0_phase[electrode]\n        if int(dir) not in patients:\n            a_cntrls[dir] = {}\n            a_cntrls[dir][electrode] = calculate_power(data, (8, 13))\n        else:",
+        "peekOfCode": "alpha_electrodes = [\"O1[9]\", \"O2[10]\", \"P3[7]\", \"P4[8]\", \"Fz[17]\"]\nfor dir in os.listdir(\"Output EEG Data\"):\n    rest0_phase_file = f\"Output EEG Data/{dir}/Phase 1.csv\"\n    rest0_phase = pd.read_csv(rest0_phase_file)\n    for electrode in alpha_electrodes:\n        data = rest0_phase[electrode]\n        if int(dir) not in patients:\n            a_cntrls[dir] = {}\n            a_cntrls[dir][electrode] = calculate_power(data, (8, 13))\n        else:",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     },

@@ -136,11 +136,10 @@ def calculate_power(data, freq_range):
     return power_spectrum
 
 
-st.write("# Alpha waves")
 alpha_electrodes = ["O1[9]", "O2[10]", "P3[7]", "P4[8]", "Fz[17]"]
 
 for dir in os.listdir("Output EEG Data"):
-    rest0_phase_file = f"Output EEG Data/{dir}/Phase 3.csv"
+    rest0_phase_file = f"Output EEG Data/{dir}/Phase 1.csv"
     rest0_phase = pd.read_csv(rest0_phase_file)
 
     for electrode in alpha_electrodes:
@@ -153,6 +152,7 @@ for dir in os.listdir("Output EEG Data"):
             a_ptnts[dir] = {}
             a_ptnts[dir][electrode] = calculate_power(data, (8, 13))
 
+st.write("# Alpha waves")
 st.subheader("Power spectrum of control")
 st.line_chart(a_cntrls["1"][alpha_electrodes[0]])
 
