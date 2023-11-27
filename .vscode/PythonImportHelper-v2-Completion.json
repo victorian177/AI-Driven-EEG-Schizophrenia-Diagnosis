@@ -99,14 +99,6 @@
         "documentation": {}
     },
     {
-        "label": "highlevel",
-        "importPath": "pyedflib",
-        "description": "pyedflib",
-        "isExtraImport": true,
-        "detail": "pyedflib",
-        "documentation": {}
-    },
-    {
         "label": "bin_dir",
         "kind": 5,
         "importPath": ".venv.Scripts.activate_this",
