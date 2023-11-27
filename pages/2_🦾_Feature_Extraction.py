@@ -191,7 +191,7 @@ st.line_chart(b_ptnts["10"][beta_electrodes[-1]])
 
 st.write("# Gamma waves")
 st.subheader("Power spectrum of control")
-st.line_chart(g_cntrls["1"][gamma_electrodes[-2]])
+st.line_chart(g_cntrls["1"][gamma_electrodes[1]])
 
 st.subheader("Power spectrum of patient")
-st.line_chart(g_ptnts["10"][gamma_electrodes[-2]])
+st.line_chart(g_ptnts["10"][gamma_electrodes[1]])
