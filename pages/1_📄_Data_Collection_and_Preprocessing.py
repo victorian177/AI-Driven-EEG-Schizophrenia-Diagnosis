@@ -2,7 +2,6 @@ import streamlit as st
 
 import numpy as np
 import pandas as pd
-from pyedflib import highlevel
 
 # Schizophrenia Section
 st.title("Schizophrenia: Understanding and Detection")
@@ -46,7 +45,7 @@ st.markdown(
 st.header("EEG Data Analysis")
 
 # Load EEG data into a DataFrame
-eeg_df = pd.read_csv("Acquired Dataset/participant_info.csv")
+eeg_df = pd.read_csv("participant_info.csv")
 
 # Number of Patients and Controls
 num_patients = eeg_df[eeg_df["category"] == "Patient"].shape[0]
@@ -100,7 +99,8 @@ st.write("This was done multiple times.")
 
 
 st.write("Here is a list of the electrodes used to measure EEG:")
-st.write("""
+st.write(
+    """
          Fp1, Fp2: Frontopolar (Frontoparietal) electrodes.
 F3, F4: Frontal electrodes.
 C3, C4: Central electrodes.
@@ -113,4 +113,5 @@ Fz, Pz, Cz: Midline electrodes, corresponding to the frontal (Fz), parietal (Pz)
 Pg1, Pg2: Parietal/occipital electrodes.
 EOGR: Electrooculogram Right (measuring eye movement).
 EOOGL: Electrooculogram Left (measuring eye movement).
-EMG: Electromyogram (measuring muscle activity).""")
+EMG: Electromyogram (measuring muscle activity)."""
+)

@@ -107,14 +107,6 @@
         "documentation": {}
     },
     {
-        "label": "highlevel",
-        "importPath": "pyedflib",
-        "description": "pyedflib",
-        "isExtraImport": true,
-        "detail": "pyedflib",
-        "documentation": {}
-    },
-    {
         "label": "bin_dir",
         "kind": 5,
         "importPath": ".venv.Scripts.activate_this",
@@ -443,7 +435,7 @@
         "kind": 5,
         "importPath": "pages.1_📄_Data_Collection_and_Preprocessing",
         "description": "pages.1_📄_Data_Collection_and_Preprocessing",
-        "peekOfCode": "eeg_df = pd.read_csv(\"Acquired Dataset/participant_info.csv\")\n# Number of Patients and Controls\nnum_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"].shape[0]\nnum_controls = eeg_df[eeg_df[\"category\"] == \"Control\"].shape[0]\n# Male to Female Ratio\nmale_to_female_ratio = eeg_df[\"sex\"].value_counts()\n# Male Patients to Female Patients Ratio\nmale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]",
+        "peekOfCode": "eeg_df = pd.read_csv(\"participant_info.csv\")\n# Number of Patients and Controls\nnum_patients = eeg_df[eeg_df[\"category\"] == \"Patient\"].shape[0]\nnum_controls = eeg_df[eeg_df[\"category\"] == \"Control\"].shape[0]\n# Male to Female Ratio\nmale_to_female_ratio = eeg_df[\"sex\"].value_counts()\n# Male Patients to Female Patients Ratio\nmale_patients = eeg_df[\n    (eeg_df[\"category\"] == \"Patient\") & (eeg_df[\"sex\"] == \"M\")\n].shape[0]",
         "detail": "pages.1_📄_Data_Collection_and_Preprocessing",
         "documentation": {}
     },

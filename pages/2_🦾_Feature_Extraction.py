@@ -13,13 +13,6 @@ The brain's electrical activity is often categorized into distinct frequency ban
 """
 )
 
-#### Delta (0.5–4.0 Hz)
-st.subheader("Delta (0.5–4.0 Hz)")
-st.write(
-    """
-Delta activity, characterized by a spectral bandwidth of 0.5–4.0 Hz, is primarily associated with slow waves observed during states of unconsciousness, such as sleep and anesthesia. Additionally, delta band synchronization in response to external stimulation plays a role in motivational, emotional, and cognitive functions. In subjects with chronic schizophrenia, resting-state EEG data consistently show increased delta power. However, findings regarding delta band abnormalities during resting state in the early phases of schizophrenia are controversial, with some studies reporting no significant differences, while others observe variations in power, amplitude, and synchronization within this band.
-"""
-)
 # Data for the Frequency Bands, Frequency Ranges, and Brain States
 data = {
     "Frequency Band": [
@@ -43,6 +36,13 @@ data = {
         "Associated with cognition, consciousness, sensorimotor, and emotional processes",
         "Primarily studied in relation to sensorimotor behavior and cognitive processes",
         "Linked to cognitive and perceptual integration processes",
+    ],
+    "Electrodes": [
+        ["Fp1[1]", "Fp2[2]", "Cz[19]"],
+        ["F3[3]", "F4[4]", "C3[5]", "C4[6]", "T3[13]", "T4[14]"],
+        ["O1[9]", "O2[10]", "P3[7]", "P4[8]", "Fz[17]"],
+        ["F7[11]", "F8[12]", "T5[15]", "T6[16]", "Pz[18]"],
+        ["Fz[17]", "Pz[18]", "O1[9]", "O2[10]", "Cz[19]"],
     ],
 }
 
