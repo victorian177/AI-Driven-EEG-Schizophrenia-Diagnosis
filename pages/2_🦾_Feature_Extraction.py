@@ -154,10 +154,10 @@ for dir in os.listdir("Output EEG Data"):
 
 st.write("# Alpha waves")
 st.subheader("Power spectrum of control")
-st.line_chart(a_cntrls["1"][alpha_electrodes[0]])
+st.line_chart(a_cntrls["1"][alpha_electrodes[-1]])
 
 st.subheader("Power spectrum of patient")
-st.line_chart(a_ptnts["10"][alpha_electrodes[0]])
+st.line_chart(a_ptnts["10"][alpha_electrodes[-1]])
 
 
 beta_electrodes = ["F7[11]", "F8[12]", "T5[15]", "T6[16]", "Pz[18]"]
@@ -184,14 +184,14 @@ for dir in os.listdir("Output EEG Data"):
 
 st.write("# Beta waves")
 st.subheader("Power spectrum of control")
-st.line_chart(b_cntrls["1"][beta_electrodes[0]])
+st.line_chart(b_cntrls["1"][beta_electrodes[-1]])
 
 st.subheader("Power spectrum of patient")
-st.line_chart(b_ptnts["10"][beta_electrodes[0]])
+st.line_chart(b_ptnts["10"][beta_electrodes[-1]])
 
 st.write("# Gamma waves")
 st.subheader("Power spectrum of control")
-st.line_chart(g_cntrls["1"][gamma_electrodes[0]])
+st.line_chart(g_cntrls["1"][gamma_electrodes[-1]])
 
 st.subheader("Power spectrum of patient")
-st.line_chart(g_ptnts["10"][gamma_electrodes[0]])
+st.line_chart(g_ptnts["10"][gamma_electrodes[-1]])
