@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-
+import numpy as np
+import os
 ## EEG Features for Diagnosis Section
 st.header("EEG Features for Diagnosis")
 
@@ -107,3 +108,44 @@ st.write(
     "Overall, EEG wave abnormalities in schizophrenia are thought to reflect underlying disruptions in brain connectivity, synchronization, and information processing. These abnormalities may contribute to the cognitive and behavioral symptoms of schizophrenia."
 )
 
+patients = [10, 14, 15, 16, 18, 2, 20, 21, 22, 23, 25, 3, 4, 5, 6, 7, 8, 9]
+
+cntrls = {}
+ptnts = {}
+
+def calculate_power(data, freq_range):
+    lower, upper = freq_range
+    fft_result = np.fft.fft(data)
+    frequencies = np.fft.fftfreq(len(data), 1/100)
+
+    # Filter frequencies within the range 8 to 13 Hz
+    mask = (frequencies >= lower) & (frequencies <= upper)
+    filtered_frequencies = frequencies[mask]
+    filtered_fft_result = fft_result[mask]
+    # Calculate power spectrum
+    power_spectrum = (np.abs(filtered_fft_result) ** 2) / len(filtered_fft_result) ** 2
+    
+    return power_spectrum
+
+# Alpha wave
+alpha_electrodes = ["O1[9]","O2[10]","P3[7]","P4[8]","Fz[17]"]
+
+for dir in os.listdir("Output EEG Data"):
+    rest0_phase_file = f"Output EEG Data/{dir}/Phase 3.csv"
+    rest0_phase = pd.read_csv(rest0_phase_file)
+    
+    for electrode in alpha_electrodes:
+        data = rest0_phase[electrode]
+        
+        if int(dir) not in patients:
+            cntrls[dir] = {}
+            cntrls[dir][electrode] = calculate_power(data, (8, 13))
+        else:
+            ptnts[dir] = {}
+            ptnts[dir][electrode] = calculate_power(data, (8, 13))
+
+st.subheader('Power spectrum of control')
+st.line_chart(cntrls["1"])
+
+st.subheader('Power spectrum of patient')
+st.line_chart(ptnts["10"])

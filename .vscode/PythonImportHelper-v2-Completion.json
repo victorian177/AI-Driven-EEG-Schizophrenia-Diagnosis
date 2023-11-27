@@ -531,6 +531,15 @@
         "documentation": {}
     },
     {
+        "label": "calculate_power",
+        "kind": 2,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "def calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]\n    # Calculate power spectrum\n    power_spectrum = (np.abs(filtered_fft_result) ** 2) / len(filtered_fft_result) ** 2",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
         "label": "data",
         "kind": 5,
         "importPath": "pages.2_🦾_Feature_Extraction",
@@ -545,6 +554,42 @@
         "importPath": "pages.2_🦾_Feature_Extraction",
         "description": "pages.2_🦾_Feature_Extraction",
         "peekOfCode": "df = pd.DataFrame(data)\n# Display the table in the Streamlit app\nst.title(\"Frequency Bands and Brain States\")\nst.table(df)\nst.title(\"EEG Patterns During Different Brain States and Cognitive Tasks\")\n# Rest\nst.header(\"Rest\")\nst.write(\n    \"During rest, the EEG is typically dominated by alpha waves. However, there may also be some theta waves and delta waves present. The amplitude of the alpha waves is higher in the occipital lobe, which is the part of the brain that is responsible for vision.\"\n)",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "patients",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "patients = [10, 14, 15, 16, 18, 2, 20, 21, 22, 23, 25, 3, 4, 5, 6, 7, 8, 9]\ncntrls = {}\nptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "cntrls",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "cntrls = {}\nptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "ptnts",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "ptnts = {}\ndef calculate_power(data, freq_range):\n    lower, upper = freq_range\n    fft_result = np.fft.fft(data)\n    frequencies = np.fft.fftfreq(len(data), 1/100)\n    # Filter frequencies within the range 8 to 13 Hz\n    mask = (frequencies >= lower) & (frequencies <= upper)\n    filtered_frequencies = frequencies[mask]\n    filtered_fft_result = fft_result[mask]\n    # Calculate power spectrum",
+        "detail": "pages.2_🦾_Feature_Extraction",
+        "documentation": {}
+    },
+    {
+        "label": "alpha_electrodes",
+        "kind": 5,
+        "importPath": "pages.2_🦾_Feature_Extraction",
+        "description": "pages.2_🦾_Feature_Extraction",
+        "peekOfCode": "alpha_electrodes = [\"O1[9]\",\"O2[10]\",\"P3[7]\",\"P4[8]\",\"Fz[17]\"]\nfor dir in os.listdir(\"Output EEG Data\"):\n    rest0_phase_file = f\"Output EEG Data/{dir}/Phase 3.csv\"\n    rest0_phase = pd.read_csv(rest0_phase_file)\n    for electrode in alpha_electrodes:\n        data = rest0_phase[electrode]\n        if int(dir) not in patients:\n            cntrls[dir] = {}\n            cntrls[dir][electrode] = calculate_power(data, (8, 13))\n        else:",
         "detail": "pages.2_🦾_Feature_Extraction",
         "documentation": {}
     }
