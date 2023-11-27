@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from pyedflib import highlevel
 
 ## EEG Features for Diagnosis Section
 st.header("EEG Features for Diagnosis")
