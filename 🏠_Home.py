@@ -12,11 +12,11 @@ st.write(
     - Build a machine learning model capable of detecting early signs of schizophrenia from EEG data.
     - Utilize advanced data analysis techniques to extract meaningful features from EEG recordings.
 
-    ### Methodology
-    1. **Data Collection:** Gather EEG data from individuals with and without schizophrenia.
-    2. **Data Preprocessing:** Clean, preprocess, and normalize the EEG data to enhance model performance.
-    3. **Feature Extraction:** Utilize signal processing techniques and feature engineering to extract relevant features.
-    4. **Model Development:** Train a machine learning model using a variety of algorithms to identify patterns associated with schizophrenia.
+    ### Pages
+    1. **Data Collection:** Contains EEG data from individuals with and without schizophrenia i.e. patients and control, how the data was collected.
+    2. **Data Preprocessing:** Shows processes involved in cleaning, preprocessing and normalising the EEG data.
+    3. **Feature Extraction:** Details signal processing techniques and feature engineering steps to extract relevant features.
+    4. **Model Development:** Logs machine learning models and parameters using a variety of algorithms to identify patterns associated with schizophrenia.
 
     ### Importance
     Early detection of schizophrenia can significantly improve patient outcomes by enabling timely intervention and treatment. This project contributes to the field of mental health by providing a tool that may assist healthcare professionals in the early identification of individuals at risk of developing schizophrenia.
