@@ -28,33 +28,19 @@ st.write(
     f"""
 #### Demographic Information:
 
-- **Age:**
-  - Patients: {patients["age"].mean():.2f} ± {patients["age"].std():.2f}
-  - Controls: {controls["age"].mean():.2f} ± {controls["age"].std():.2f}
+- **Age (Mean ± Standard Deviation):**
+  - Patients: {patients["age"].mean():.2f} ± {patients["age"].std():.2f} years
+  - Controls: {controls["age"].mean():.2f} ± {controls["age"].std():.2f} years
 
-- **Gender Distribution:**
-  - Patients: [Number of Males / Number of Females]
-  - Controls: [Number of Males / Number of Females]
-
-- **Ethnicity (if applicable):**
-  - Provide a breakdown of the ethnic composition of the participants.
-
-#### Inclusion and Exclusion Criteria:
-
-- Clearly defined inclusion criteria for both patient and control groups.
-- Clearly defined exclusion criteria for both patient and control groups.
+- **Gender Distribution (Male /Female):**
+  - Patients: [{len(patients[patients["sex" == 'M']])} / {len(patients[patients["sex" == 'F']])}]
+  - Controls: [{len(controls[controls["sex" == 'M']])} / {len(controls[controls["sex" == 'F']])}]
 
 #### Sample Size:
-
-- Total number of participants: [Number of Patients] (Schizophrenia) + [Number of Controls]
+- Total number of participants: {len(patients)} (Schizophrenia) + {len(controls)} = {len(participants)}
 
 #### Participant IDs (Anonymization):
-
-- Briefly explain the use of participant IDs to ensure anonymity.
-
-#### Description of Control Group (if applicable):
-
-- Provide information on how the control group was selected and any matching criteria used.
+- The names of each of the participants was removed to ensure privacy.
 
 """
 )
