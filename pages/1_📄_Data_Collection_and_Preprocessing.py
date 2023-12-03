@@ -26,19 +26,13 @@ Electroencephalogram (EEG) is an avenue being experimentally utilized due to its
 """
 )
 
-
-# Continue adding subsections for Theta, Alpha, Beta, and Gamma frequencies...
-
 # References Section
 st.header("References")
 st.markdown(
     """
 - Perrottelli, A., Giordano, G. M., Brando, F., Giuliani, L., & Mucci, A. (2021). EEG-Based Measures in At-Risk Mental State and Early Stages of Schizophrenia: A Systematic Review. [Frontiers in Psychiatry](https://www.frontiersin.org/articles/10.3389/fpsyt.2021.653642/full)
-
 - WebMD Editorial Contributors. (2022, January 21). Schizophrenia: An Overview. [WebMD](https://www.webmd.com/schizophrenia/mental-health-schizophrenia)
-
 - Schizophrenia. [Wikipedia](https://en.wikipedia.org/wiki/Schizophrenia)
-
 - Electroencephalography. [Wikipedia](https://en.wikipedia.org/wiki/Electroencephalography)
 """
 )
