@@ -16,17 +16,16 @@ st.write(
         """
 )
 
+participants = pd.read_csv("participant_info.csv")
+
 st.write(
     f"""
 ### Participants
 
-### Dataset
-{pd.read_csv("participant_info.csv")}
-
 #### Demographic Information:
 
 - **Age:**
-  - Patients: Mean age ± Standard Deviation (SD)
+  - Patients: Mean age
   - Controls: Mean age ± SD
 
 - **Gender Distribution:**
