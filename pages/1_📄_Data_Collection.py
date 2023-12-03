@@ -4,7 +4,7 @@ import streamlit as st
 
 st.write(
     """
-        # Data Collection Report
+        # Data Collection
         Here is the Data Collection Report for the project on the "Early Detection of Schizophrenia using EEG Data." This report provides a detailed account of the collection process for EEG data obtained from individuals both with and without schizophrenia, categorized as patients and controls, respectively. The purpose of this report is to elucidate the methodologies employed in data collection, participant demographics, and essential characteristics of the collected EEG data.
 
         ## Scope of the Report
@@ -16,13 +16,13 @@ st.write(
         """
 )
 
+st.write("### Participants")
+
 participants = pd.read_csv("participant_info.csv", index_col=False)
 st.dataframe(participants)
 
 st.write(
     f"""
-### Participants
-
 #### Demographic Information:
 
 - **Age:**
