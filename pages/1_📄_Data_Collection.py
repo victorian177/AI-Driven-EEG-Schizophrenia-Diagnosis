@@ -16,15 +16,12 @@ st.write(
         """
 )
 
-participants = pd.read_csv("participant_info.csv")
-
-
 st.write(
     f"""
 ### Participants
 
 ### Dataset
-{st.dataframe(participants)}
+{pd.read_csv("participant_info.csv")}
 
 #### Demographic Information:
 
