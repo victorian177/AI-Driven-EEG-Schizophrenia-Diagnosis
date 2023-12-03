@@ -29,8 +29,8 @@ st.write(
 #### Demographic Information:
 
 - **Age:**
-  - Patients: {patients["age"].mean()} ± {patients["age"].std()}
-  - Controls: {controls["age"].mean()} ± {controls["age"].std()}
+  - Patients: {patients["age"].mean():2f} ± {patients["age"].std():2f}
+  - Controls: {controls["age"].mean():2f} ± {controls["age"].std():2f}
 
 - **Gender Distribution:**
   - Patients: [Number of Males / Number of Females]
