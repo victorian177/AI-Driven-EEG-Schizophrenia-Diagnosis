@@ -9,11 +9,11 @@ st.write(
     This project aims to develop a machine learning model for the early detection of schizophrenia based on Electroencephalogram (EEG) data. Schizophrenia is a complex mental health disorder, and early diagnosis is crucial for effective intervention and treatment. EEG data, which measures electrical activity in the brain, provides a valuable source of information for understanding neurophysiological patterns associated with schizophrenia.
 
     ### Objectives
+    - Utilize advanced data analysis techniques to extract meaningful features from EEG recordings
     - Build a machine learning model capable of detecting early signs of schizophrenia from EEG data.
-    - Utilize advanced data analysis techniques to extract meaningful features from EEG recordings.
 
     ### Pages
-    1. **[Data Collection](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Data_Collection):** Contains EEG data from individuals with and without schizophrenia i.e. patients and control, how the data was collected.
+    1. **[Data Collection](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Data_Collection):** Contains EEG data from individuals with and without schizophrenia i.e. patients and control, how the data was collected and various distributions in the data.
     2. **[Data Preprocessing](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Data_Preprocessing):** Shows processes involved in cleaning, preprocessing and normalising the EEG data.
     3. **[Feature Extraction](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Feature_Extraction):** Details signal processing techniques and feature engineering steps to extract relevant features.
     4. **[Model Development](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Machine_Learning):** Logs machine learning models and parameters using a variety of algorithms to identify patterns associated with schizophrenia.
