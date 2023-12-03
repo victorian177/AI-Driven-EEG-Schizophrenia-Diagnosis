@@ -33,8 +33,8 @@ st.write(
   - Controls: {controls["age"].mean():.2f} ± {controls["age"].std():.2f} years
 
 - **Gender Distribution (Male /Female):**
-  - Patients: [{len(patients[patients["sex" == 'M']])} / {len(patients[patients["sex" == 'F']])}]
-  - Controls: [{len(controls[controls["sex" == 'M']])} / {len(controls[controls["sex" == 'F']])}]
+  - Patients: [{len(patients[patients["sex"] == 'M'])} / {len(patients[patients["sex"] == 'F'])}]
+  - Controls: [{len(controls[controls["sex"] == 'M'])} / {len(controls[controls["sex"] == 'F'])}]
 
 #### Sample Size:
 - Total number of participants: {len(patients)} (Schizophrenia) + {len(controls)} = {len(participants)}
