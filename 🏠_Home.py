@@ -13,8 +13,8 @@ st.write(
     - Utilize advanced data analysis techniques to extract meaningful features from EEG recordings.
 
     ### Pages
-    1. **[Data Collection](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Data_Collection_and_Preprocessing):** Contains EEG data from individuals with and without schizophrenia i.e. patients and control, how the data was collected.
-    2. **[Data Preprocessing](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Data_Collection_and_Preprocessing):** Shows processes involved in cleaning, preprocessing and normalising the EEG data.
+    1. **[Data Collection](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Data_Collection):** Contains EEG data from individuals with and without schizophrenia i.e. patients and control, how the data was collected.
+    2. **[Data Preprocessing](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Data_Preprocessing):** Shows processes involved in cleaning, preprocessing and normalising the EEG data.
     3. **[Feature Extraction](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Feature_Extraction):** Details signal processing techniques and feature engineering steps to extract relevant features.
     4. **[Model Development](https://ai-driven-eeg-schizophrenia-diagnosis.streamlit.app/Machine_Learning):** Logs machine learning models and parameters using a variety of algorithms to identify patterns associated with schizophrenia.
 
