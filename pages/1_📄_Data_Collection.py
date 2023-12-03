@@ -16,9 +16,12 @@ st.write(
         """
 )
 
+participants = pd.read_csv("participant_info.csv", index_col=False)
+patients = participants[participants["category"] == "Patient"]
+controls = participants[participants["category"] == "Control"]
+
 st.write("### Participants")
 
-participants = pd.read_csv("participant_info.csv", index_col=False)
 st.dataframe(participants)
 
 st.write(
@@ -26,8 +29,8 @@ st.write(
 #### Demographic Information:
 
 - **Age:**
-  - Patients: Mean age
-  - Controls: Mean age ± SD
+  - Patients: {patients["age"].mean()} ± {patients["age"].std()}
+  - Controls: {controls["age"].mean()} ± {controls["age"].std()}
 
 - **Gender Distribution:**
   - Patients: [Number of Males / Number of Females]
