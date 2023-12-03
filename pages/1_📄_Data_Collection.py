@@ -17,11 +17,11 @@ st.write(
 )
 
 participants = pd.read_csv("participant_info.csv", index_col=False)
+st.dataframe(participants)
 
 st.write(
     f"""
 ### Participants
-{participants}
 
 #### Demographic Information:
 
