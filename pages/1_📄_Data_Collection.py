@@ -16,7 +16,7 @@ st.write(
         """
 )
 
-participants = pd.read_csv("participant_info.csv")
+participants = pd.read_csv("participant_info.csv", index_col=False)
 
 st.write(
     f"""
