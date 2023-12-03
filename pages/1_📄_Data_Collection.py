@@ -21,6 +21,7 @@ participants = pd.read_csv("participant_info.csv")
 st.write(
     f"""
 ### Participants
+{participants}
 
 #### Demographic Information:
 
