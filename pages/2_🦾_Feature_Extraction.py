@@ -142,9 +142,8 @@ def calculate_power(data, freq_range):
     fft_result = np.fft.fft(data)
     frequencies = np.fft.fftfreq(len(data), 1 / 100)
 
-    # Filter frequencies within the range 8 to 13 Hz
+    # Filter frequencies within the range specified
     mask = (frequencies >= lower) & (frequencies <= upper)
-    filtered_frequencies = frequencies[mask]
     filtered_fft_result = fft_result[mask]
     # Calculate power spectrum
     power_spectrum = (np.abs(filtered_fft_result) ** 2) / len(filtered_fft_result) ** 2
