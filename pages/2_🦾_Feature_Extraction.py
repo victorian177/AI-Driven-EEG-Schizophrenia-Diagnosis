@@ -6,23 +6,33 @@ import os
 ## EEG Features for Diagnosis Section
 st.header("EEG Features for Diagnosis")
 
-st.write("When working with EEG data, extracting meaningful features is crucial for gaining insights into brain activity. "
-         "There are three primary ways to generate features from EEG recordings:")
+st.write(
+    "When working with EEG data, extracting meaningful features is crucial for gaining insights into brain activity. "
+    "There are three primary ways to generate features from EEG recordings:"
+)
 
-st.write("1. **Frequency Analysis:** This method involves analyzing the different frequency components of the EEG signal. "
-         "Common frequency bands include Alpha, Beta, and Gamma. These bands provide information about the oscillatory patterns "
-         "of brain activity and are often associated with different cognitive states.")
+st.write(
+    "1. **Frequency Analysis:** This method involves analyzing the different frequency components of the EEG signal. "
+    "Common frequency bands include Alpha, Beta, and Gamma. These bands provide information about the oscillatory patterns "
+    "of brain activity and are often associated with different cognitive states."
+)
 
-st.write("2. **Statistical Characteristics:** Extracting statistical features such as the mean, standard deviation, skewness, "
-         "and kurtosis can provide a quantitative description of the EEG signal. These measures offer insights into the central "
-         "tendency, variability, and shape of the signal distribution.")
+st.write(
+    "2. **Statistical Characteristics:** Extracting statistical features such as the mean, standard deviation, skewness, "
+    "and kurtosis can provide a quantitative description of the EEG signal. These measures offer insights into the central "
+    "tendency, variability, and shape of the signal distribution."
+)
 
-st.write("3. **Event-Related Potentials (ERPs):** ERPs represent the brain's electrical response to specific stimuli or events. "
-         "Components like N100 and P300 are examples of ERPs that are time-locked to particular events. Analyzing ERPs allows "
-         "researchers to understand how the brain processes information in response to external stimuli.")
+st.write(
+    "3. **Event-Related Potentials (ERPs):** ERPs represent the brain's electrical response to specific stimuli or events. "
+    "Components like N100 and P300 are examples of ERPs that are time-locked to particular events. Analyzing ERPs allows "
+    "researchers to understand how the brain processes information in response to external stimuli."
+)
 
-st.write("These three approaches offer complementary perspectives on EEG data, enabling researchers to capture both the "
-         "temporal and spectral characteristics of brain activity.")
+st.write(
+    "These three approaches offer complementary perspectives on EEG data, enabling researchers to capture both the "
+    "temporal and spectral characteristics of brain activity."
+)
 
 ### Frequency Analysis
 st.subheader("Frequency Analysis")
