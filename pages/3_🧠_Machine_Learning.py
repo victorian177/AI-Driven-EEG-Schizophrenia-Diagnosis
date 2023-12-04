@@ -1,5 +1,7 @@
 # Import necessary libraries
 import streamlit as st
+import mlflow
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -42,46 +44,45 @@ st.write(
     "In the context of schizophrenia detection, it is crucial to minimize false negatives to ensure early detection and intervention. Precision is essential to minimize false positives, as misdiagnosing a healthy individual as having schizophrenia can have serious consequences. Achieving a balance between precision and recall is often necessary, emphasizing the importance of a comprehensive evaluation approach."
 )
 
+# Set MLflow server URI (replace 'http://localhost:5000' with the actual URI of your MLflow server)
+mlflow.set_tracking_uri('http://localhost:5000')
 
-dataset_path = "Frequency Analysis Dataset/Dataset.csv"
-df = pd.read_csv(dataset_path)
-
-# Assume the last column is the target variable
-X = df.iloc[:, :-1]
-y = df.iloc[:, -1]
-
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
-
-# Create a Random Forest Classifier
-rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
-
-# Train the classifier on the training data
-rf_classifier.fit(X_train, y_train)
-
-# Make predictions on the test set
-y_pred = rf_classifier.predict(X_test)
-
-# Calculate evaluation metrics
-accuracy = accuracy_score(y_test, y_pred)
-precision = precision_score(y_test, y_pred, pos_label="P")
-recall = recall_score(y_test, y_pred, pos_label="P")
-f1 = f1_score(y_test, y_pred, pos_label="P")
-roc_auc = roc_auc_score(y_test, rf_classifier.predict_proba(X_test)[:, 1])
-pr_auc = average_precision_score(
-    y_test, rf_classifier.predict_proba(X_test)[:, 1], pos_label="P"
-)
+# Get a list of runs
+runs = mlflow.search_runs()
 
 # Streamlit application
-st.title("Random Forest Classifier Metrics")
+st.title("MLflow Information Viewer")
 
-# Display evaluation metrics
-st.subheader("Evaluation Metrics:")
-st.write(f"Accuracy: {accuracy:.4f}")
-st.write(f"Precision: {precision:.4f}")
-st.write(f"Recall: {recall:.4f}")
-st.write(f"F1 Score: {f1:.4f}")
-st.write(f"AUC-ROC: {roc_auc:.4f}")
-st.write(f"AUC-PR: {pr_auc:.4f}")
+# Display runs
+st.subheader("Runs:")
+st.write(runs)
+
+# Allow the user to select a run
+selected_run_id = st.selectbox("Select a run:", runs["run_id"])
+
+# Retrieve information for the selected run
+if selected_run_id:
+    with st.spinner("Fetching run information..."):
+        # Get run information
+        run_info = mlflow.get_run(selected_run_id)
+
+        # Display run parameters
+        st.subheader("Run Parameters:")
+        st.write(pd.DataFrame(run_info.data.params, index=[0]))
+
+        # Display run metrics
+        st.subheader("Run Metrics:")
+        st.write(pd.DataFrame(run_info.data.metrics, index=[0]))
+
+        # Display artifacts (if any)
+        st.subheader("Artifacts:")
+        artifacts_dir = os.path.join(mlflow.get_artifact_uri(), selected_run_id)
+        artifacts = os.listdir(artifacts_dir)
+        st.write(artifacts)
+
+        # Display the model (if logged)
+        model_path = os.path.join(artifacts_dir, "random_forest_model")
+        if os.path.exists(model_path):
+            st.subheader("Model:")
+            st.write(f"Model saved at: {model_path}")
+
