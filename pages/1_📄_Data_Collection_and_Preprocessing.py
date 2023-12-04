@@ -32,6 +32,9 @@ st.write("2. Arithmetic Task Phase")
 st.write("3. Another Rest Phase")
 st.write("4. Auditory Task Phase")
 
+st.write("Data Format: European Data Format (EDF)")
+st.write("The EEG data was stored in the European Data Format, commonly used for biomedical signals such as EEG.")
+
 
 participants = pd.read_csv("participant_info.csv", index_col=False)
 patients = participants[participants["category"] == "Patient"]
