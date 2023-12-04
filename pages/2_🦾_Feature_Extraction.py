@@ -92,8 +92,6 @@ st.write(
     "When performing auditory tasks, there is an increase in gamma waves and beta waves in the auditory cortex. This area of the brain is responsible for processing sound."
 )
 
-import streamlit as st
-
 st.title("EEG Wave Differences: Normal vs. Schizophrenia")
 
 # Alpha Waves
