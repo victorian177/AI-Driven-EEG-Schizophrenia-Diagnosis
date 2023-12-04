@@ -16,12 +16,28 @@ st.write(
         """
 )
 
+st.write(" ### EEG Recording Information")
+st.write("The EEG recording was conducted using the Generis Software.")
+st.write("Recording Method: Referential")
+st.write(
+    "In referential recording, the electrical activity at each electrode is measured "
+    "with respect to a common reference point, usually the ground electrode."
+)
+st.write(
+    "This provides information about the activity at individual electrodes relative to the reference."
+)
+st.write("Phases of the EEG Recording:")
+st.write("1. Rest Phase")
+st.write("2. Arithmetic Task Phase")
+st.write("3. Another Rest Phase")
+st.write("4. Auditory Task Phase")
+
+
 participants = pd.read_csv("participant_info.csv", index_col=False)
 patients = participants[participants["category"] == "Patient"]
 controls = participants[participants["category"] == "Control"]
 
 st.write("### Participants")
-
 st.dataframe(participants)
 
 st.write(
