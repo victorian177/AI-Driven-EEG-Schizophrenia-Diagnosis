@@ -45,7 +45,7 @@ st.write(
 )
 
 # Set MLflow server URI (replace 'http://localhost:5000' with the actual URI of your MLflow server)
-mlflow.set_tracking_uri('http://localhost:5000')
+mlflow.set_tracking_uri("http://localhost:5000")
 
 # Get a list of runs
 runs = mlflow.search_runs()
@@ -85,4 +85,3 @@ if selected_run_id:
         if os.path.exists(model_path):
             st.subheader("Model:")
             st.write(f"Model saved at: {model_path}")
-
