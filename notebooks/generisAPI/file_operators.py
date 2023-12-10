@@ -1,6 +1,7 @@
-from pyedflib import EdfReader
 import os
+
 import numpy as np
+from pyedflib import EdfReader
 
 
 def make_path(root_path, subject_id=1, trial=1, phase=4):

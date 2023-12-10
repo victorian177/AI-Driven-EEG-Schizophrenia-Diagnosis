@@ -1,7 +1,8 @@
-import numpy as np
-from matplotlib import pyplot as plt, patches
+from math import cos, pi, radians, sin
 
-from math import cos, pi, sin, radians
+import numpy as np
+from matplotlib import patches
+from matplotlib import pyplot as plt
 from scipy.interpolate import griddata, interp2d
 
 center = (0.5, 0.5)

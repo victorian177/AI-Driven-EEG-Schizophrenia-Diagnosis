@@ -1,7 +1,8 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
 import os
+
+import numpy as np
+import pandas as pd
+import streamlit as st
 
 ## EEG Features for Diagnosis Section
 st.header("EEG Features for Diagnosis")

@@ -3,12 +3,33 @@ import scipy.signal as sig
 
 
 class MMN:
+    """
+    Mismatch Negativity (MMN) class for computing MMN values from time series data.
+    """
+
     def __init__(self, delay=10, position=40, window_size=20):
+        """
+        Constructor for the MMN class.
+
+        Args:
+            delay (int): The delay in samples between the deviant and standard stimuli.
+            position (int): The position of the deviant stimulus in the time series.
+            window_size (int): The size of the temporal window used for analysis in samples.
+        """
         self.d = delay
         self.p = position
         self.w = window_size
 
     def mmn_value(self, x):
+        """
+        Computes the MMN value from a time series.
+
+        Args:
+            x (numpy.ndarray): 1D or 2D numpy array containing the time series data.
+
+        Returns:
+            numpy.ndarray: The MMN values.
+        """
         if x.ndim == 1:
             return np.mean(x[self.p - self.d : self.p - self.d + self.w])
         elif x.ndim == 2:
@@ -16,7 +37,19 @@ class MMN:
 
 
 class ASSR:
+    """
+    Auditory Steady State Response (ASSR) class for computing ASSR values from time series data.
+    """
+
     def __init__(self, freq, dfreq, fs=200):
+        """
+        Constructor for the ASSR class.
+
+        Args:
+            freq (float): The stimulation frequency.
+            dfreq (float): The frequency deviation.
+            fs (int): The sampling frequency.
+        """
         self.freq = freq
         self.lfreq = freq - dfreq
         self.hfreq = freq + dfreq
@@ -28,6 +61,15 @@ class ASSR:
         self.fit_transform = self.assr
 
     def assr(self, X):
+        """
+        Computes the ASSR values from time series data.
+
+        Args:
+            X (numpy.ndarray): 1D or 2D numpy array containing the time series data.
+
+        Returns:
+            tuple: A tuple containing ASSR amplitude and phase values.
+        """
         # reshape data if need be
         if X.ndim == 1:
             X = X.reshape(1, X.shape[0])
@@ -51,24 +93,18 @@ class ASSR:
 
 
 def average_trials_assr(assr_data, null_data_checker):
+    """
+    Averages ASSR values across trials.
+
+    Args:
+        assr_data (dict): Dictionary containing ASSR data for each subject.
+        null_data_checker: An object providing information about null data.
+
+    Returns:
+        dict: Dictionary containing averaged ASSR data for each subject.
+    """
     new_assr_data = dict()
     for s in assr_data:
         if s not in null_data_checker.indices:
             new_assr_data[s] = pcn.trials_averaging().fit_transform(assr_data[s])
     return new_assr_data
-
-
-# def mmn_value(time_series, deviant_position, standard_position, window_size, delay):
-#     """
-#     Computes the Mismatch Negativity (MMN) value from a time series
-#     :param time_series: 1D numpy array containing the time series data
-#     :param deviant_position: the position of the deviant stimulus in the time series
-#     :param standard_position: the position of the standard stimulus in the time series
-#     :param window_size: the size of the temporal window used for analysis in milliseconds
-#     :param delay: the delay in milliseconds between the deviant and standard stimuli
-#     :return: the MMN value
-#     """
-#     deviant_window = time_series[deviant_position-delay:deviant_position-delay+window_size]
-#     standard_window = time_series[standard_position-delay:standard_position-delay+window_size]
-#     mmn = np.mean(deviant_window) - np.mean(standard_window)
-#     return mmn

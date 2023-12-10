@@ -1,0 +1,14 @@
+black
+EntropyHub
+isort
+joblib
+matplotlib
+matplotlib-inline
+mlflow
+numpy
+pandas
+plotly
+pyEDFlib
+scikit-learn
+scipy
+seaborn

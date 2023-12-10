@@ -1,13 +1,11 @@
-import numpy as np
-from matplotlib import pyplot as plt, patches
-import mne
-
-from scipy.interpolate import PchipInterpolator, interp1d
-
 import os
+from math import cos, floor, pi, radians, sin
 
-from math import cos, pi, sin, radians, floor
-from scipy.interpolate import griddata, interp2d
+import mne
+import numpy as np
+from matplotlib import patches
+from matplotlib import pyplot as plt
+from scipy.interpolate import PchipInterpolator, griddata, interp1d, interp2d
 
 r1 = 0.1
 r2 = 0.13

@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, minmax_scale
-
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, minmax_scale
 
 # def convertMarkersTime2Sample(data,subject,phase):
 #     x=data[subject]['eeg_data'][phase]
