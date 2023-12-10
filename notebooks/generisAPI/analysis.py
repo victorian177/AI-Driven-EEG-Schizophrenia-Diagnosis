@@ -1,8 +1,10 @@
 import math
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import plots
+
 
 class MMNFeaturesAnalysis:
     """
@@ -18,7 +20,9 @@ class MMNFeaturesAnalysis:
         """
         self.electrodes = electrodes
 
-    def compare_mmn_deviants_frame(self, deviant1, deviant2, classes, frame, title, name):
+    def compare_mmn_deviants_frame(
+        self, deviant1, deviant2, classes, frame, title, name
+    ):
         """
         Compare MMN deviants between classes and create a scatter plot.
 
@@ -66,7 +70,13 @@ class EntropyFeaturesAnalysis:
         pass
 
     def compare_entropies_between_classes(
-        self, df, patients_index, controls_index, title="title", name="name", size=(20, 20)
+        self,
+        df,
+        patients_index,
+        controls_index,
+        title="title",
+        name="name",
+        size=(20, 20),
     ):
         """
         Compare entropies between classes and create scatter plots.
@@ -113,7 +123,10 @@ class EntropyFeaturesAnalysis:
         plt.imshow(correlation_matrix, cmap="viridis", interpolation="none")
         plt.colorbar()
         plt.title("Correlation Matrix")
-        plt.xticks(range(len(correlation_matrix.columns)), correlation_matrix.columns, rotation=90)
+        plt.xticks(
+            range(len(correlation_matrix.columns)),
+            correlation_matrix.columns,
+            rotation=90,
+        )
         plt.yticks(range(len(correlation_matrix.columns)), correlation_matrix.columns)
         plt.show()
-

@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, minmax_scale
 
+
 def auditory_stimuli_epoching(data, subject, dt):
     """
     Perform epoching on auditory stimuli EEG data.

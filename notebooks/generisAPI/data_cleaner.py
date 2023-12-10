@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, minmax_scale
 
+
 def auditory_stimuli_epoching(data, subject, dt):
     """
     Epoch auditory stimuli data based on unique markers.
@@ -18,7 +19,7 @@ def auditory_stimuli_epoching(data, subject, dt):
     x = data[subject]["eeg_data"]
     xm = data[subject]["eeg_markers"]
     res = dict()
-    
+
     if isinstance(x, list):
         for p, pdata in enumerate(xm):
             if x[p].shape != (0, 0, 0):

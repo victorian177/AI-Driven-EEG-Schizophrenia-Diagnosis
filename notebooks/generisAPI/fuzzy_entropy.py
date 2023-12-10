@@ -3,6 +3,7 @@ import time
 import numpy as np
 from scipy.spatial.distance import cdist
 
+
 def sigmoid(x, r):
     """
     Sigmoid function.
@@ -17,6 +18,7 @@ def sigmoid(x, r):
     assert isinstance(r, tuple), 'When Fx = "Sigmoid", r must be a two-element tuple.'
     y = 1 / (1 + np.exp((x - r[1]) / r[0]))
     return y
+
 
 def default(x, r):
     """
@@ -33,6 +35,7 @@ def default(x, r):
     y = np.exp(-(x ** r[1]) / r[0])
     return y
 
+
 def modsampen(x, r):
     """
     Modsampen function.
@@ -47,6 +50,7 @@ def modsampen(x, r):
     assert isinstance(r, tuple), 'When Fx = "Modsampen", r must be a two-element tuple.'
     y = 1 / (1 + np.exp((x - r[1]) / r[0]))
     return y
+
 
 def gudermannian(x, r):
     """
@@ -64,6 +68,7 @@ def gudermannian(x, r):
     y = np.arctan(np.tanh(r / x))
     y = y / np.max(y)
     return y
+
 
 def linear(x, r):
     """
@@ -86,6 +91,7 @@ def linear(x, r):
         print(r)
         raise Exception('When Fx = "Linear", r must be 0 or 1')
     return y
+
 
 class FuzzEntropy:
     """
@@ -146,6 +152,7 @@ class FuzzEntropy:
             fuzz = np.log(psim) - np.log(psim1)
         return fuzz
 
+
 def fuzz_entropy_2d(x, window_size, dissimilarity_index, membership_function=linear):
     """
     Compute fuzzy entropy for 2D data.
@@ -165,6 +172,7 @@ def fuzz_entropy_2d(x, window_size, dissimilarity_index, membership_function=lin
     for i in range(x.shape[0]):
         res[i] = fuzzy_ent._fuzzy_entropy_compute(x[i, :])
     return res.mean()
+
 
 class ChatGPTFuzzyEntropy:
     """
