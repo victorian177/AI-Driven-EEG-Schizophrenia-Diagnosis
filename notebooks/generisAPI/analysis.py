@@ -21,7 +21,13 @@ class MMNFeaturesAnalysis:
         self.electrodes = electrodes
 
     def compare_mmn_deviants_frame(
-        self, deviant1, deviant2, classes, frame, title, name
+        self,
+        deviant1,
+        deviant2,
+        classes,
+        frame,
+        title,
+        name,
     ):
         """
         Compare MMN deviants between classes and create a scatter plot.

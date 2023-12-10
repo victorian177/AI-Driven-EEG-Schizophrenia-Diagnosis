@@ -250,3 +250,38 @@ def phase_processor(pipeline, phase_data):
     """
     X = pipeline.fit_transform(phase_data.values)
     return pd.DataFrame(data=X, columns=phase_data.columns)
+
+
+def montage_plot(eeg_sample, electrodes, ax):
+    # assert eeg_sample.shape[0] == len(electrodes)
+
+    head_outer_circle = patches.Circle(center, radius=0.4, color="black")
+    head_inner_circle = patches.Circle(center, radius=0.39, color="white")
+
+    ax.set_aspect(1)
+    ax.add_artist(head_outer_circle)
+    ax.add_artist(head_inner_circle)
+
+    draw_nose(ax)
+    draw_electrode(electrodes, ax)
+
+    points = []
+    X = list()
+    Y = list()
+    for electrode in electrodes:
+        X.append(ELECTRODES[electrode][0])
+        Y.append(ELECTRODES[electrode][1])
+        points.append(ELECTRODES[electrode])
+    Xi, Yi = np.meshgrid(X, Y)
+    points = np.array(points)
+    print(points.shape)
+
+    Z = griddata(points, eeg_sample, (Xi, Yi), "cubic")
+
+    ax.set_ylim(0, 1)
+    ax.set_xlim(0, 1)
+
+    ax.contour(X, Y, Z)
+
+    # ax.axis('equal')
+    plt.show()
