@@ -2,14 +2,6 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, minmax_scale
 
-# def convertMarkersTime2Sample(data,subject,phase):
-#     x=data[subject]['eeg_data'][phase]
-#     xm=data[subject]['eeg_markers'][phase]
-#     fs= data[subject]['Fs'][phase]
-#     for i,m in enumerate(xm):
-#         xm[i][0] = np.floor(m[0].astype(float)*(fs[i]*10))s
-
-
 def auditory_stimuli_epoching(data, subject, dt):
     dt = int(dt * 200)
     x = data[subject]["eeg_data"]

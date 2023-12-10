@@ -4,21 +4,21 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler, minmax_scale
 
 def auditory_stimuli_epoching(data, subject, dt):
     """
-    Perform epoching on auditory stimuli EEG data.
+    Epoch auditory stimuli data based on unique markers.
 
     Args:
-        data (dict): Dictionary containing EEG data.
-        subject (str): Key representing the subject in the data dictionary.
-        dt (float): Time duration of each epoch in seconds.
+        data (dict): Dictionary containing EEG data and markers.
+        subject (str): Subject identifier.
+        dt (float): Time duration in seconds for each epoch.
 
     Returns:
-        dict: Dictionary containing epoch data for each stimulus marker.
+        dict: Dictionary containing auditory stimuli epochs for each unique marker.
     """
-    dt = int(dt * 200)  # Convert time duration to samples
+    dt = int(dt * 200)
     x = data[subject]["eeg_data"]
     xm = data[subject]["eeg_markers"]
     res = dict()
-
+    
     if isinstance(x, list):
         for p, pdata in enumerate(xm):
             if x[p].shape != (0, 0, 0):
@@ -54,15 +54,15 @@ def auditory_stimuli_epoching(data, subject, dt):
 
 def subject_phase_auditory_epochs(data, subject, dt):
     """
-    Process auditory stimuli EEG data for a single subject.
+    Generate auditory epochs for a specific subject.
 
     Args:
-        data (dict): Dictionary containing EEG data.
-        subject (str): Key representing the subject in the data dictionary.
-        dt (float): Time duration of each epoch in seconds.
+        data (dict): Dictionary containing EEG data and markers for all subjects.
+        subject (str): Subject identifier.
+        dt (float): Time duration in seconds for each epoch.
 
     Returns:
-        dict: Dictionary containing epoch data for each stimulus marker.
+        dict: Dictionary containing auditory stimuli epochs for each unique marker.
     """
     res = auditory_stimuli_epoching(data, subject, dt)
     return res
@@ -70,14 +70,14 @@ def subject_phase_auditory_epochs(data, subject, dt):
 
 def all_subjects_phase_auditory_epochs(data, dt):
     """
-    Process auditory stimuli EEG data for all subjects.
+    Generate auditory epochs for all subjects.
 
     Args:
-        data (dict): Dictionary containing EEG data for multiple subjects.
-        dt (float): Time duration of each epoch in seconds.
+        data (dict): Dictionary containing EEG data and markers for all subjects.
+        dt (float): Time duration in seconds for each epoch.
 
     Returns:
-        dict: Dictionary containing epoch data for each subject and stimulus marker.
+        dict: Dictionary of dictionaries containing auditory stimuli epochs for each unique marker for all subjects.
     """
     res = dict()
     for subject in data:
@@ -87,19 +87,15 @@ def all_subjects_phase_auditory_epochs(data, dt):
 
 class Pipeline:
     """
-    A class representing a data processing pipeline.
-
-    Attributes:
-        ppc (list): List of processor instances in the pipeline.
+    Class for creating a processing pipeline for EEG data.
     """
 
     def __init__(self, processors):
         """
-        Initialize the pipeline with a list of processors.
+        Constructor for Pipeline.
 
         Args:
-            processors (list): List of tuples, each containing a processor class
-                               and its initialization parameters.
+            processors (list): List of tuples containing processing class and its parameters.
         """
         self.ppc = [0] * len(processors)
         for i in range(len(processors)):
@@ -107,13 +103,13 @@ class Pipeline:
 
     def fit_transform(self, X):
         """
-        Fit and transform the input data using the pipeline.
+        Fit and transform the input data through the processing pipeline.
 
         Args:
-            X: Input data to be processed.
+            X (array-like): Input data.
 
         Returns:
-            Processed data.
+            array-like: Transformed data.
         """
         for i in range(len(self.ppc)):
             X = self.ppc[i].fit_transform(X)
@@ -122,7 +118,7 @@ class Pipeline:
 
 class EpochStd:
     """
-    Standardize EEG epoch data using scikit-learn's StandardScaler.
+    Class for standardizing EEG epochs.
     """
 
     def __init__(self):
@@ -130,13 +126,13 @@ class EpochStd:
 
     def fit_transform(self, X):
         """
-        Fit and transform the input data using standardization.
+        Fit and transform EEG epochs using standard scaling.
 
         Args:
-            X: Input data to be standardized.
+            X (numpy.ndarray): EEG epochs.
 
         Returns:
-            Standardized data.
+            numpy.ndarray: Standardized EEG epochs.
         """
         scl = StandardScaler()
         res = np.empty(X.shape)
@@ -150,7 +146,7 @@ class EpochStd:
 
 class EpochMinMax:
     """
-    Scale EEG epoch data using scikit-learn's MinMaxScaler.
+    Class for scaling EEG epochs using Min-Max scaling.
     """
 
     def __init__(self, range, axis):
@@ -159,13 +155,13 @@ class EpochMinMax:
 
     def fit_transform(self, X):
         """
-        Fit and transform the input data using Min-Max scaling.
+        Fit and transform EEG epochs using Min-Max scaling.
 
         Args:
-            X: Input data to be scaled.
+            X (numpy.ndarray): EEG epochs.
 
         Returns:
-            Scaled data.
+            numpy.ndarray: Scaled EEG epochs.
         """
         res = np.empty(X.shape)
         if X.ndim == 3:
@@ -180,7 +176,7 @@ class EpochMinMax:
 
 class AudStimuliTrialAverage:
     """
-    Compute the trial average of auditory stimuli EEG data.
+    Class for averaging auditory stimuli trials.
     """
 
     def __init__(self):
@@ -188,24 +184,20 @@ class AudStimuliTrialAverage:
 
     def fit_transform(self, X):
         """
-        Compute the trial average of the input data.
+        Fit and transform averaged auditory stimuli trials.
 
         Args:
-            X: Input data.
+            X (numpy.ndarray): Auditory stimuli trials.
 
         Returns:
-            Trial-averaged data.
+            numpy.ndarray: Averaged auditory stimuli trials.
         """
         return np.average(X, axis=0)
 
 
 class StimuliMMN:
     """
-    Compute the Mismatch Negativity (MMN) of EEG data.
-
-    Attributes:
-        std_tone (str): The standard tone used as a reference.
-        n (int): The window size for computing MMN.
+    Class for computing stimuli Mismatch Negativity (MMN).
     """
 
     def __init__(self, std_tone, N):
@@ -214,13 +206,13 @@ class StimuliMMN:
 
     def fit_transform(self, X):
         """
-        Compute MMN for EEG data.
+        Fit and transform stimuli MMN.
 
         Args:
-            X: Input data.
+            X (dict): Dictionary containing auditory stimuli epochs.
 
         Returns:
-            MMN-computed data.
+            dict: Dictionary containing computed MMN for each subject.
         """
         res = dict()
         for s in X:
@@ -238,14 +230,33 @@ class StimuliMMN:
 
 def phase_processor(pipeline, phase_data):
     """
-    Process phase data using a given pipeline.
+    Process EEG phase data using a pipeline.
 
     Args:
-        pipeline (Pipeline): An instance of the data processing pipeline.
-        phase_data (pd.DataFrame): Phase data to be processed.
+        pipeline (Pipeline): Processing pipeline.
+        phase_data (dict): Dictionary containing EEG phase data for different stimuli.
 
     Returns:
-        pd.DataFrame: Processed phase data.
+        dict: Dictionary containing processed EEG phase data for different stimuli.
     """
-    X = pipeline.fit_transform(phase_data.values)
-    return pd.DataFrame(data=X, columns=phase_data.columns)
+    res = dict()
+    for stim in phase_data:
+        res[stim] = pipeline.fit_transform(phase_data[stim])
+    return res
+
+
+def all_subjects_processor(pipeline, data):
+    """
+    Process EEG data for all subjects using a pipeline.
+
+    Args:
+        pipeline (Pipeline): Processing pipeline.
+        data (dict): Dictionary containing EEG data for all subjects.
+
+    Returns:
+        dict: Dictionary containing processed EEG data for all subjects.
+    """
+    res = dict()
+    for subject in data:
+        res[subject] = phase_processor(pipeline, data[subject])
+    return res

@@ -1,8 +1,12 @@
 __all__ = [
     "analysis",
-    "file_operators",
+    "auditory_processor",
+    "data_cleaner",
+    "dataset_generator",
+    "features_extractor",
+    "fuzzy_entropy",
+    "model",
     "plots",
-    "preprocessing",
-    "audProcessing",
-    "ml_models",
+    "preprocessor",
+    "processor",
 ]
